@@ -1,6 +1,6 @@
-import Headers from "./headers";
-import PartialResponse from "./partial-response";
-import Response  from "./response";
+import { Headers } from "./headers";
+import { PartialResponse } from "./partial-response";
+import { Response } from "./response";
 import { asReadable, BodyInit } from "./body";
 
 export type ResponseBuilderHeaderProcessor = (headers: Headers) => HeadersInit;
@@ -193,7 +193,7 @@ class ResponseBuilder {
       }
 
       // We're only going to use the status value if we're using the body from the response
-      if (typeof response.status === "number") {
+      if ("status" in response && typeof response.status === "number") {
         status = response.status;
         // Override the status text
         statusText = response.statusText;
@@ -220,5 +220,3 @@ class ResponseBuilder {
 }
 
 export { ResponseBuilder };
-
-export default ResponseBuilder;

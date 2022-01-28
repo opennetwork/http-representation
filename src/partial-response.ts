@@ -1,4 +1,4 @@
-import Response, { ResponseInit } from "./response";
+import { Response, ResponseInit } from "./response";
 
 export type PartialResponseInit = PartialResponse | ResponseInit;
 
@@ -23,5 +23,3 @@ class PartialResponse extends Response {
 }
 
 export { PartialResponse };
-
-export default PartialResponse;

@@ -1,6 +1,6 @@
-import ResponseBuilder from "../dist/response-builder";
-import PartialResponse from "../dist/partial-response";
-import Response from "../dist/response";
+import { ResponseBuilder } from "../esnext/response-builder.js";
+import { PartialResponse } from "../esnext/partial-response.js";
+import { Response } from "../esnext/response.js";
 
 const builder = new ResponseBuilder({
   replaceSubsequentFullResponses: true

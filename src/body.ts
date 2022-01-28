@@ -1,4 +1,4 @@
-import Headers, { HeadersInit } from "./headers";
+import { Headers, HeadersInit } from "./headers";
 import globalOrSelf from "./global-or-self";
 import { Readable } from "stream";
 import { createReplayReadable, ReplayReadable } from "./node/replay-readable";
@@ -115,7 +115,10 @@ function readStringAsUint8Array(value: string): Uint8Array {
   if (!support.textEncoder) {
     throw new Error("No TextEncoder available");
   }
-  const encoder = new globalOrSelf.TextEncoder("utf-8");
+  const encoder = new globalOrSelf.TextEncoder();
+  if (encoder.encoding !== "utf-8") {
+    throw new Error("TextEncoder does not have utf-8 encoding");
+  }
   return encoder.encode(value);
 }
 
@@ -635,5 +638,3 @@ class Body {
 }
 
 export { Body };
-
-export default Body;

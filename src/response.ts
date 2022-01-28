@@ -1,5 +1,5 @@
-import Body, { BodyInit } from "./body";
-import Headers, { HeadersInit } from "./headers";
+import { Body, BodyInit } from "./body";
+import { Headers, HeadersInit } from "./headers";
 
 export type ResponseInit = Response | {
   status?: number;
@@ -81,5 +81,3 @@ class Response extends Body {
 }
 
 export { Response };
-
-export default Response;

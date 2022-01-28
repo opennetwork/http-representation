@@ -1,7 +1,7 @@
-const { Body, ignoreBodyUsed, asBuffer } = require('../dist'),
-  { createReadStream } = require('fs');
+import { Body, ignoreBodyUsed, asBuffer } from '../esnext/index.js';
+import { createReadStream } from 'fs';
 
-(async () => {
+await (async () => {
 
   // cwd is top level of this project
   const initial = createReadStream("./package.json");

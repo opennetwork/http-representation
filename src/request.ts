@@ -1,5 +1,5 @@
-import Body, { BodyInit } from "./body";
-import Headers, { HeadersInit } from "./headers";
+import { Body, BodyInit } from "./body";
+import { HeadersInit } from "./headers";
 
 export type RequestInfo = Request | string;
 export type RequestMethod = "ALLOW" | "COPY" | "DELETE" | "GET" | "OPTIONS" | "PATCH" | "POST" | "PUT" | string;
@@ -13,7 +13,6 @@ export type RequestInit = {
 class Request extends Body {
   public readonly method: RequestMethod;
   public readonly url: string;
-  public readonly body: BodyInit;
 
   constructor(input: RequestInfo, init?: RequestInit) {
     let headerCandidate = {};
@@ -33,5 +32,3 @@ class Request extends Body {
 }
 
 export { Request };
-
-export default Request;

@@ -251,5 +251,3 @@ Object.defineProperty(Headers.prototype, Symbol.toStringTag, {
 });
 
 export { Headers };
-
-export default Headers;

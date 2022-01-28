@@ -1,20 +1,20 @@
 {
     "compilerOptions": {
         "esModuleInterop": true,
-        "module": "es6",
+        "module": "esnext",
         "lib": [
-            "es2018",
+            "esnext",
             "dom"
         ],
         "types": [
             "node"
         ],
-        "target": "es6",
+        "target": "esnext",
         "noImplicitAny": true,
         "downlevelIteration": true,
         "moduleResolution": "node",
         "sourceMap": true,
-        "outDir": "dist",
+        "outDir": "esnext",
         "baseUrl": ".",
         "paths": {
             "*": [
