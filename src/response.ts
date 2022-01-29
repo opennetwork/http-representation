@@ -1,6 +1,5 @@
 import { Body, BodyInit } from "./body";
 import { Headers, HeadersInit } from "./headers";
-import * as Buffer from "buffer";
 
 export type ResponseInit = Response | {
   status?: number;
