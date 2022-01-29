@@ -1,5 +1,6 @@
 import { Body, BodyInit } from "./body";
 import { Headers, HeadersInit } from "./headers";
+import * as Buffer from "buffer";
 
 export type ResponseInit = Response | {
   status?: number;
@@ -84,6 +85,50 @@ class Response extends Body {
       headers.set("Content-Type", "application/json");
     }
     return new Response(JSON.stringify(body), {
+      ...init,
+      headers
+    });
+  }
+
+  static blob(body: Blob, init?: ResponseInit) {
+    const headers = new Headers(init?.headers);
+    if (!headers.has("Content-Type")) {
+      headers.set("Content-Type", body.type ?? "application/octet-stream");
+    }
+    return new Response(body, {
+      ...init,
+      headers
+    });
+  }
+
+  static arrayBuffer(body: ArrayBuffer | Buffer, init?: ResponseInit) {
+    const headers = new Headers(init?.headers);
+    if (!headers.has("Content-Type")) {
+      headers.set("Content-Type", "application/octet-stream");
+    }
+    return new Response(body, {
+      ...init,
+      headers
+    });
+  }
+
+  static text(body: string, init?: ResponseInit) {
+    const headers = new Headers(init?.headers);
+    if (!headers.has("Content-Type")) {
+      headers.set("Content-Type", "text/plain");
+    }
+    return new Response(body, {
+      ...init,
+      headers
+    });
+  }
+
+  static formData(body: FormData, init?: ResponseInit) {
+    const headers = new Headers(init?.headers);
+    if (!headers.has("Content-Type")) {
+      headers.set("Content-Type", "multipart/form-data");
+    }
+    return new Response(body, {
       ...init,
       headers
     });
